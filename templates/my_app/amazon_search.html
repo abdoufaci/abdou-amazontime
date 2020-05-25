@@ -1,0 +1,86 @@
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>abdou amazon</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css>
+    <link rel="stylesheet" href=https://fonts.googleapis.com/icon?family=Material+Icons>
+</head>
+<body>
+<nav style="background-color:black">
+    <div class="container nav-wrapper">
+        <a href="/" class="brand-logo">abdou amazon</a>
+        <ul id="nav-mobile" class="right">
+            <li><a href="/">Home</a></li>
+        </ul>
+    </div>
+</nav>
+<div id="index-banner" class="parallax-container">
+    <div class="container">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    <form action="{% url 'amazon_search' %}" method="post">
+        {% csrf_token %}
+          <nav style="background:transparent">
+              <div class="nav-wrapper">
+                  <form>
+                      <div class="input-field">
+                          <input id="search" type="search" name="search">
+                          <label class="label-icon" for="search"><i class="material-icons"style="color:black">search</i></label>
+                          <i class="material-icons">close</i>
+                      </div>
+                  </form>
+              </div>
+          </nav>
+    </form>
+        <div class="parallax">
+            <img src="https://scontent-mrs2-2.xx.fbcdn.net/v/t1.15752-0/p280x280/97956239_2728182517308431_7988715449179176960_n.png?_nc_cat=102&_nc_sid=b96e70&_nc_ohc=kdSuZ64B8K8AX9KWryR&_nc_ht=scontent-mrs2-2.xx&oh=888bf1f029924289944291a441540d02&oe=5EE81EF3" style="transform: translate3d(-50%, 120.1px, 140px); opacity:1;">
+        </div>
+    </div>
+</div>
+<div class="container">
+<table>
+    <thead>
+    <tr>
+        <th>timezone</th>
+        <th> time </th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{ search }}</td>
+        {% for dat in date %}
+        <td>{{ dat }}</td>
+        {% endfor %}
+    </tr>
+    </tbody>
+</table>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+{% endblock content %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
